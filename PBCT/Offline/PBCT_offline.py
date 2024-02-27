@@ -234,7 +234,7 @@ def PBCT_log(csv_name,L,U,random_index,repeated_num,coef_file):
     print('LS_lasso_ERR',np.mean(err2_percent_list))
     LS_lasso_RMSE = np.sqrt(np.mean(test2_err_list))
     LS_lasso_ERR = np.mean(err2_percent_list)
-    l1_ratio_list = [0.1,0.3,0.5,0.7,0.9]
+    l1_ratio_list = [0.05,0.2,0.4,0.6,0.8,0.95]
     elasticNet_model = sklearn.linear_model.ElasticNetCV(fit_intercept=False,cv=cv,alphas=[0.01,0.1,1,10],l1_ratio = l1_ratio_list)
     Reg_elasticnet = elasticNet_model.fit(X_train_labled.to_numpy(), y_train.to_numpy().ravel())
     print('alpha and l1_ratio of elasticNet is',Reg_elasticnet.alpha_,Reg_elasticnet.l1_ratio_)
